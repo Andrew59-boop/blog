@@ -1,0 +1,125 @@
+{% extends 'main.html' %}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<header>
+
+
+    <div class="welcome img-fluid">
+        <div class="welcome-text">
+            <h1>"YOU</h1>
+            <h1>GOT</h1>
+            <h1>THIS"</h1>
+        </div>
+    </div>
+
+
+</header>
+<br><br>
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-lg-4">
+                <div class="card" style="width: 18rem; height: fit-content;">
+                    <img class="card-img-top" src="{{url_for('static',filename='photos/create.jpeg')}}"
+                        alt="Card image cap" style="height: 16vh;">
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h3>Create Blogs of Your own</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-lg-4">
+                <div class="card" style="width: 18rem; height: fit-content;">
+                    <img class="card-img-top" src="{{url_for('static',filename='photos/brenda.jpeg')}}"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h3>View other writer's Blogs</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-lg-4">
+                <div class="card" style="width: 18rem; height:fit-content ;">
+                    <img class="card-img-top" src="{{url_for('static',filename='photos/feedback.jpeg')}}"
+                        alt="Card image cap" style="height: 16vh;">
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h3>Give feedback or Comment to blogs</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><br><br><br>
+
+
+
+</section>
+
+<articles>
+
+    <div class="container">
+        <button type="button" class="btn btn-lg btn-block btn-outline-secondary">Recently Featured Blog(s)</button>
+        <br><br><br>
+
+
+    {% for blog in blogs[::-1] %}
+    <div class="row">
+        
+        <div class="col">
+            <div class="card" style="height: fit-content;">
+                <div class="card-header article-header">
+                    {{ blog.user.username}}
+                    <p class="text-right">{{ blog.date_posted }}</p>
+                    
+
+                </div>
+                <div class="card-body article-body">
+                    <h2 class="card-title">{{ blog.title}}</h2>
+                    <p class="card-text">{{ blog.description}}
+                    </p>
+                    <a href="{{url_for('main.comment', id = blog.id)}}" class="comment btn btn-outline-info">options</a>
+                </div>
+            </div>
+        </div>
+        
+    </div><br><br><br><br>
+    {% endfor %}
+
+</div>
+
+
+
+</articles>
+
+
+<footer class="page-footer font-small cyan darken-3 app-footer " style="height: fit-content;">
+    <div class="text-center">
+        <h4>QUOTE OF THE SESSION</h4>
+    </div>
+    <div class="quote text-center">
+        " {{quote.quote}} " ~{{quote.author}}
+    </div>
+
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        Andrew Yaah
+    </div>
+
+
+</footer>
+
+{% endblock %}
+
+</body>
+
+</html>
