@@ -24,7 +24,7 @@ body{
 .card{
     color: teal;
     text-decoration: turquoise;
-    background-color: whitesmoke;
+    background-color: rgb(235, 227, 227);
     padding: 15px;
     margin: 15px;
     height: 350px;
