@@ -29,7 +29,7 @@ idna==2.8
 ipaddr==2.2.0
 isort==4.3.21
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 lazy-object-proxy==1.4.3
 lockfile==0.12.2
 Mako==1.1.3
